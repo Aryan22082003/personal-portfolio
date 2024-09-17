@@ -751,7 +751,37 @@ footer a{
 }
 
 
+.chatbot-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--hover-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--neon-box-shadow);
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+}
 
+.chatbot-btn:hover {
+    background-color: #0be7e1;
+}
+
+.chatbot-btn i {
+    color: var(--bg-color);
+    font-size: 28px;
+}
+.chatbot-btn img {
+    width: 70%; /* Adjust size to fit inside the button */
+    height: 70%;
+    object-fit: cover; /* Ensures image keeps aspect ratio and fits well */
+}
 
 
 
