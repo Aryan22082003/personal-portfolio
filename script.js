@@ -115,3 +115,43 @@ scrollBottom.forEach((el)=>observer.observe(el));
 
 const scrollTop = document.querySelectorAll(".scroll-top");
 scrollTop.forEach((el)=>observer.observe(el));
+
+////////////////////// CONTACT FORM MESSAGE FUNCTIONALITY WITH VALIDATION ///////////////////////////////
+
+const contactForm = document.querySelector("form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent reload
+
+    // Get all field values
+    const name = contactForm.querySelector('input[placeholder="Name"]').value.trim();
+    const email = contactForm.querySelector('input[placeholder="Email"]').value.trim();
+    const address = contactForm.querySelector('input[placeholder="Address"]').value.trim();
+    const phone = contactForm.querySelector('input[placeholder="Phone Number"]').value.trim();
+    const message = contactForm.querySelector('textarea').value.trim();
+
+    // Validation rules
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10,}$/;
+
+    if (!name || !email || !address || !phone || !message) {
+      alert("⚠️ Please fill in all the fields before sending the message.");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      alert("⚠️ Please enter a valid email address.");
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      alert("⚠️ Please enter a valid phone number (at least 10 digits).");
+      return;
+    }
+
+    // If validation passes
+    alert("✅ Message sent successfully!");
+    contactForm.reset(); // Clear the form
+  });
+}
